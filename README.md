@@ -1,1 +1,1 @@
-# platform-development-parent-pom
+# app-development-parent-pom
