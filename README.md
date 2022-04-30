@@ -7,3 +7,7 @@
     * git-code-format-maven-plugin to format code with google java format
     * jacoco-maven-plugin to generate test report . this report could be used by sonarqube etc 
     * openapi-generator-maven-plugin to generate openapi server code(spring)
+
+## TODO
+    Add owasp dependency-check-maven plugin
+    Add sonar-maven-plugin
