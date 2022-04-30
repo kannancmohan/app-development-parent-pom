@@ -33,7 +33,7 @@
     <google-java-format.version>1.15.0</google-java-format.version>
     <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     <openapi-generator-maven-plugin.version>5.4.0</openapi-generator-maven-plugin.version>
-    <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
+    <!--<findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>-->
     <spring-cloud-aws-dependencies.version>2.4.1</spring-cloud-aws-dependencies.version>
   </properties>
   <dependencyManagement>
@@ -211,13 +211,13 @@
           <groupId>org.openapitools</groupId>
           <artifactId>openapi-generator-maven-plugin</artifactId>
           <version>${openapi-generator-maven-plugin.version}</version>
-          <dependencies>
+          <!--<dependencies>
             <dependency>
               <groupId>com.google.code.findbugs</groupId>
               <artifactId>jsr305</artifactId>
               <version>${findbugs-jsr305.version}</version>
             </dependency>
-          </dependencies>
+          </dependencies>-->
           <executions>
             <execution>
               <id>generate-openapi-server-code</id>
