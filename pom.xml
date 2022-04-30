@@ -20,13 +20,19 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <java.version>17</java.version>
+    <lombok.version>1.18.24</lombok.version>
+    <commons-lang3.version>3.12.0</commons-lang3.version>
+    <commons-collections4.version>4.4</commons-collections4.version>
+    <springdoc-openapi-ui.version>1.6.8</springdoc-openapi-ui.version>
+    <jackson-databind-nullable.version>0.2.2</jackson-databind-nullable.version>
     <maven-enforcer-plugin.versio>3.0.0</maven-enforcer-plugin.versio>
-    <maven.compiler.plugin.versio>3.10.1</maven.compiler.plugin.versio>
+    <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
     <maven.checkstyle.plugin.version>3.1.2</maven.checkstyle.plugin.version>
     <checkstyle.version>10.2</checkstyle.version>
     <git-code-format.version>3.3</git-code-format.version>
     <google-java-format.version>1.15.0</google-java-format.version>
     <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
+    <openapi-generator-maven-plugin.version>5.4.0</openapi-generator-maven-plugin.version>
     <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
     <spring-cloud-aws-dependencies.version>2.4.1</spring-cloud-aws-dependencies.version>
   </properties>
@@ -39,6 +45,38 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <!-- Common dependencies -->
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons-lang3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>${commons-collections4.version}</version>
+      </dependency>
+      <!-- openapi dependencies -->
+      <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-ui</artifactId>
+        <version>${springdoc-openapi-ui.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openapitools</groupId>
+        <artifactId>jackson-databind-nullable</artifactId>
+        <version>${jackson-databind-nullable.version}</version>
+      </dependency>
+      <!--<dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson-databind.version}</version>
+      </dependency>-->
     </dependencies>
   </dependencyManagement>
 
@@ -187,7 +225,9 @@
                 <goal>generate</goal>
               </goals>
               <configuration>
-                <inputSpec>${project.basedir}/src/main/resources/static/openapi.yaml</inputSpec>
+                <!-- can openapi source as url -->
+                <!--<inputSpec>https://petstore3.swagger.io/api/v3/openapi.yaml</inputSpec>-->
+                <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml</inputSpec>
                 <generatorName>spring</generatorName>
                 <apiPackage>${project.groupId}.${open-api-package}.api</apiPackage>
                 <modelPackage>${project.groupId}.${open-api-package}.models</modelPackage>
