@@ -30,7 +30,8 @@
     <maven.checkstyle.plugin.version>3.1.2</maven.checkstyle.plugin.version>
     <checkstyle.version>10.2</checkstyle.version>
     <git-code-format.version>3.3</git-code-format.version>
-    <google-java-format.version>1.15.0</google-java-format.version>
+    <!--<google-java-format.version>1.15.0</google-java-format.version>
+    <guava.version>31.1-jre</guava.version>-->
     <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     <openapi-generator-maven-plugin.version>5.4.0</openapi-generator-maven-plugin.version>
     <!--<findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>-->
@@ -158,33 +159,48 @@
             </execution>
           </executions>
         </plugin>
-        <!-- Auto Code formatter. Usage: 'mvn git-code-format:format-code'-->
+        <!-- Git code formatting at precommit and mvn verify. For Manual code format use 'mvn git-code-format:format-code'-->
         <plugin>
           <groupId>com.cosium.code</groupId>
           <artifactId>git-code-format-maven-plugin</artifactId>
           <version>${git-code-format.version}</version>
-          <dependencies>
+          <!--<dependencies>
             <dependency>
               <groupId>com.google.googlejavaformat</groupId>
               <artifactId>google-java-format</artifactId>
               <version>${google-java-format.version}</version>
             </dependency>
-          </dependencies>
-          <configuration>
-            <googleJavaFormatOptions>
-              <aosp>false</aosp>
-              <fixImportsOnly>false</fixImportsOnly>
-            </googleJavaFormatOptions>
-          </configuration>
-
+            <dependency>
+              <groupId>com.google.guava</groupId>
+              <artifactId>guava</artifactId>
+              <version>${guava.version}</version>
+            </dependency>
+          </dependencies>-->
           <executions>
+            <!-- On commit, format the modified java files -->
             <execution>
               <id>install-formatter-hook</id>
               <goals>
                 <goal>install-hooks</goal>
               </goals>
             </execution>
+            <!-- On Maven verify phase, fail if any file
+            (including unmodified) is badly formatted -->
+            <execution>
+              <id>validate-code-format</id>
+              <goals>
+                <goal>validate-code-format</goal>
+              </goals>
+            </execution>
           </executions>
+          <configuration>
+            <googleJavaFormatOptions>
+              <aosp>false</aosp>
+              <fixImportsOnly>false</fixImportsOnly>
+              <skipSortingImports>false</skipSortingImports>
+              <skipRemovingUnusedImports>false</skipRemovingUnusedImports>
+            </googleJavaFormatOptions>
+          </configuration>
         </plugin>
         <!-- jacoco plugin to generate test report-->
         <plugin>
@@ -227,7 +243,8 @@
               <configuration>
                 <!-- can openapi source as url -->
                 <!--<inputSpec>https://petstore3.swagger.io/api/v3/openapi.yaml</inputSpec>-->
-                <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml</inputSpec>
+                <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml
+                </inputSpec>
                 <generatorName>spring</generatorName>
                 <apiPackage>${project.groupId}.${open-api-package}.api</apiPackage>
                 <modelPackage>${project.groupId}.${open-api-package}.models</modelPackage>
