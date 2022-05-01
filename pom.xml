@@ -35,6 +35,8 @@
     <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     <openapi-generator-maven-plugin.version>5.4.0</openapi-generator-maven-plugin.version>
     <!--<findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>-->
+    <spotbugs-maven-plugin.version>4.6.0.0</spotbugs-maven-plugin.version>
+    <spotbugs.version>4.6.0</spotbugs.version>
     <spring-cloud-aws-dependencies.version>2.4.1</spring-cloud-aws-dependencies.version>
   </properties>
   <dependencyManagement>
@@ -278,7 +280,8 @@
                 <goal>generate</goal>
               </goals>
               <configuration>
-                <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml</inputSpec>
+                <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml
+                </inputSpec>
                 <generatorName>java</generatorName>
                 <apiPackage>${project.groupId}.${open-api-client-package}.api</apiPackage>
                 <modelPackage>${project.groupId}.${open-api-client-package}.models</modelPackage>
@@ -299,6 +302,43 @@
                   <interfaceOnly>false</interfaceOnly>
                 </configOptions>
               </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <!-- spotbugs plugin -->
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>${spotbugs-maven-plugin.version}</version>
+          <dependencies>
+            <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+            <dependency>
+              <groupId>com.github.spotbugs</groupId>
+              <artifactId>spotbugs</artifactId>
+              <version>${spotbugs.version}</version>
+            </dependency>
+          </dependencies>
+          <configuration>
+            <failOnError>true</failOnError>
+            <!-- threshold values Low,Medium,High -->
+            <threshold>High</threshold>
+            <!--<includeFilterFile>spotbugs-security-include.xml</includeFilterFile>
+            <excludeFilterFile>spotbugs-security-exclude.xml</excludeFilterFile>
+            <plugins>
+              <plugin>
+                <groupId>com.h3xstream.findsecbugs</groupId>
+                <artifactId>findsecbugs-plugin</artifactId>
+                <version>1.10.1</version>
+              </plugin>
+            </plugins>-->
+          </configuration>
+          <executions>
+            <execution>
+              <id>spotbugs-check</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>check</goal>
+              </goals>
             </execution>
           </executions>
         </plugin>
