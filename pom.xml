@@ -110,6 +110,7 @@
                 <rules>
                   <requireJavaVersion>
                     <version>${java.version}</version>
+                    <message>Invalid Java version. It should be at least ${java.version}</message>
                   </requireJavaVersion>
                 </rules>
               </configuration>
@@ -123,7 +124,19 @@
                 <rules>
                   <requireMavenVersion>
                     <version>[3.5.4,)</version><!-- greater than or equals 3.5.4  -->
+                    <message>Invalid Maven version. It should be at least 3.5.4</message>
                   </requireMavenVersion>
+                </rules>
+              </configuration>
+            </execution>
+            <execution>
+              <id>enforce-project-specific</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <configuration>
+                <rules>
+                  <banDuplicatePomDependencyVersions/>
                 </rules>
               </configuration>
             </execution>
@@ -247,8 +260,8 @@
                 <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml
                 </inputSpec>
                 <generatorName>spring</generatorName>
-                <apiPackage>${project.groupId}.${open-api-package}.api</apiPackage>
-                <modelPackage>${project.groupId}.${open-api-package}.models</modelPackage>
+                <apiPackage>${project.groupId}.${open-api-server-package}.api</apiPackage>
+                <modelPackage>${project.groupId}.${open-api-server-package}.models</modelPackage>
                 <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
                 <output>${project.build.directory}/generated-sources</output>
                 <configOptions>
@@ -256,6 +269,34 @@
                   <delegatePattern>true</delegatePattern>
                   <interfaceOnly>true</interfaceOnly>
                   <useTags>true</useTags>
+                </configOptions>
+              </configuration>
+            </execution>
+            <execution>
+              <id>generate-openapi-java-client-code</id>
+              <goals>
+                <goal>generate</goal>
+              </goals>
+              <configuration>
+                <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml</inputSpec>
+                <generatorName>java</generatorName>
+                <apiPackage>${project.groupId}.${open-api-client-package}.api</apiPackage>
+                <modelPackage>${project.groupId}.${open-api-client-package}.models</modelPackage>
+                <!--<supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>-->
+                <output>${project.build.directory}/generated-sources</output>
+                <generatorName>java</generatorName>
+                <library>resttemplate</library>
+                <generateApis>true</generateApis>
+                <generateApiDocumentation>false</generateApiDocumentation>
+                <generateApiTests>false</generateApiTests>
+                <generateModels>true</generateModels>
+                <generateModelDocumentation>false</generateModelDocumentation>
+                <generateModelTests>false</generateModelTests>
+                <generateSupportingFiles>true</generateSupportingFiles>
+                <configOptions>
+                  <sourceFolder>src/main/java</sourceFolder>
+                  <useTags>true</useTags>
+                  <interfaceOnly>false</interfaceOnly>
                 </configOptions>
               </configuration>
             </execution>

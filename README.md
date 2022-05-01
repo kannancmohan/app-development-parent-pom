@@ -11,3 +11,4 @@
 ## TODO
     Add owasp dependency-check-maven plugin
     Add sonar-maven-plugin
+    Add enforcement of junit5 using maven-enforcer-plugin 
