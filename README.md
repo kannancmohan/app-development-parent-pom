@@ -13,3 +13,4 @@
     Add sonar-maven-plugin
     Add enforcement of junit5 using maven-enforcer-plugin 
     Exclude scanning of generated source folder from spotbugs plugin
+    Finalize the configuration and verify generation of client code by openapi-generator-maven-plugin
