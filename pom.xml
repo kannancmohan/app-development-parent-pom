@@ -30,14 +30,14 @@
     <maven.checkstyle.plugin.version>3.1.2</maven.checkstyle.plugin.version>
     <checkstyle.version>10.2</checkstyle.version>
     <git-code-format.version>3.3</git-code-format.version>
-    <!--<google-java-format.version>1.15.0</google-java-format.version>
-    <guava.version>31.1-jre</guava.version>-->
     <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     <openapi-generator-maven-plugin.version>5.4.0</openapi-generator-maven-plugin.version>
     <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
     <swagger-annotations.version>1.6.6</swagger-annotations.version>
     <spotbugs-maven-plugin.version>4.6.0.0</spotbugs-maven-plugin.version>
     <spotbugs.version>4.6.0</spotbugs.version>
+    <arch-unit-maven-plugin.version>2.9.2</arch-unit-maven-plugin.version>
+    <arch-unit-build-plugin-core.version>2.9.2</arch-unit-build-plugin-core.version>
     <spring-cloud-aws-dependencies.version>2.4.1</spring-cloud-aws-dependencies.version>
   </properties>
   <dependencyManagement>
@@ -192,18 +192,6 @@
           <groupId>com.cosium.code</groupId>
           <artifactId>git-code-format-maven-plugin</artifactId>
           <version>${git-code-format.version}</version>
-          <!--<dependencies>
-            <dependency>
-              <groupId>com.google.googlejavaformat</groupId>
-              <artifactId>google-java-format</artifactId>
-              <version>${google-java-format.version}</version>
-            </dependency>
-            <dependency>
-              <groupId>com.google.guava</groupId>
-              <artifactId>guava</artifactId>
-              <version>${guava.version}</version>
-            </dependency>
-          </dependencies>-->
           <executions>
             <!-- On commit, format the modified java files -->
             <execution>
@@ -357,6 +345,49 @@
               <phase>verify</phase>
               <goals>
                 <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <!-- archunit plugin -->
+        <plugin>
+          <groupId>com.societegenerale.commons</groupId>
+          <artifactId>arch-unit-maven-plugin</artifactId>
+          <version>${arch-unit-maven-plugin.version}</version>
+          <dependencies>
+            <dependency>
+              <groupId>com.societegenerale.commons</groupId>
+              <artifactId>arch-unit-build-plugin-core</artifactId>
+              <version>${arch-unit-build-plugin-core.version}</version>
+            </dependency>
+          </dependencies>
+          <configuration>
+            <excludedPaths>
+              <excludedPath>generated-sources</excludedPath>
+            </excludedPaths>
+            <rules>
+              <preConfiguredRules>
+                <rule>com.societegenerale.commons.plugin.rules.NoStandardStreamRuleTest</rule>
+                <rule>com.societegenerale.commons.plugin.rules.NoJunitAssertRuleTest</rule>
+                <rule>com.societegenerale.commons.plugin.rules.NoJodaTimeRuleTest</rule>
+                <rule>com.societegenerale.commons.plugin.rules.NoJavaUtilDateRuleTest</rule>
+                <rule>com.societegenerale.commons.plugin.rules.NoPowerMockRuleTest</rule>
+                <rule>com.societegenerale.commons.plugin.rules.NoPrefixForInterfacesRuleTest</rule>
+                <rule>com.societegenerale.commons.plugin.rules.NoPublicFieldRuleTest</rule>
+                <!-- you may want to use one of the below rules, but not both at same time -->
+                <rule>com.societegenerale.commons.plugin.rules.NoTestIgnoreRuleTest</rule>
+                <!--<rule>com.societegenerale.commons.plugin.rules.NoTestIgnoreWithoutCommentRuleTest</rule>-->
+                <rule>com.societegenerale.commons.plugin.rules.NoInjectedFieldTest</rule>
+                <rule>com.societegenerale.commons.plugin.rules.NoAutowiredFieldTest</rule>
+              </preConfiguredRules>
+            </rules>
+          </configuration>
+          <executions>
+            <execution>
+              <id>archunit-test</id>
+              <phase>test</phase>
+              <goals>
+                <goal>arch-test</goal>
               </goals>
             </execution>
           </executions>
