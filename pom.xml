@@ -39,6 +39,9 @@
     <arch-unit-maven-plugin.version>2.9.2</arch-unit-maven-plugin.version>
     <arch-unit-build-plugin-core.version>2.9.2</arch-unit-build-plugin-core.version>
     <spring-cloud-aws-dependencies.version>2.4.1</spring-cloud-aws-dependencies.version>
+    <!-- plugin related properties -->
+    <archunit.skip>false</archunit.skip>
+    <spotbugs.skip>false</spotbugs.skip>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -326,6 +329,7 @@
             </dependency>
           </dependencies>
           <configuration>
+            <skip>${spotbugs.skip}</skip>
             <failOnError>true</failOnError>
             <!-- threshold values Low,Medium,High -->
             <threshold>High</threshold>
@@ -362,6 +366,7 @@
             </dependency>
           </dependencies>
           <configuration>
+            <skip>${archunit.skip}</skip>
             <excludedPaths>
               <excludedPath>generated-sources</excludedPath>
             </excludedPaths>
