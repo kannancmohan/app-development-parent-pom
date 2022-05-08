@@ -42,6 +42,8 @@
     <!-- plugin related properties -->
     <archunit.skip>false</archunit.skip>
     <spotbugs.skip>false</spotbugs.skip>
+    <openapi-server-code.skip>false</openapi-server-code.skip>
+    <openapi-client-code.skip>false</openapi-client-code.skip>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -166,6 +168,23 @@
                 </rules>
               </configuration>
             </execution>
+            <execution>
+              <id>enforce-banned-dependencies</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <configuration>
+                <rules>
+                  <bannedDependencies>
+                    <!-- checks if log4j-core dependencies is below the version 2.17.1 -->
+                    <excludes>
+                      <exclude>org.apache.logging.log4j:log4j-core:(,2.17.1)</exclude>
+                    </excludes>
+                    <searchTransitive>true</searchTransitive>
+                  </bannedDependencies>
+                </rules>
+              </configuration>
+            </execution>
           </executions>
         </plugin>
         <!--  Google checkstyle -->
@@ -269,6 +288,7 @@
                 <goal>generate</goal>
               </goals>
               <configuration>
+                <skip>${openapi-server-code.skip}</skip>
                 <!-- can openapi source as url -->
                 <!--<inputSpec>https://petstore3.swagger.io/api/v3/openapi.yaml</inputSpec>-->
                 <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml
@@ -292,6 +312,7 @@
                 <goal>generate</goal>
               </goals>
               <configuration>
+                <skip>${openapi-client-code.skip}</skip>
                 <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml
                 </inputSpec>
                 <generatorName>java</generatorName>
