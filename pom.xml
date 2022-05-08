@@ -99,6 +99,7 @@
         <artifactId>app-development-shared-resource</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <classifier>resources</classifier>
+        <scope>provided</scope>
         <type>zip</type>
       </dependency>
       <!--<dependency>
@@ -447,6 +448,19 @@
               </configuration>
             </execution>
           </executions>
+        </plugin>
+        <!-- spring-boot-maven-plugin -->
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <!-- configured to generate build info which exposes the maven version,artifactId etc -->
+          <!--<executions>
+            <execution>
+              <goals>
+                <goal>build-info</goal>
+              </goals>
+            </execution>
+          </executions>-->
         </plugin>
       </plugins>
     </pluginManagement>
