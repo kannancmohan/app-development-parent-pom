@@ -38,6 +38,7 @@
     <spotbugs.version>4.6.0</spotbugs.version>
     <arch-unit-maven-plugin.version>2.9.2</arch-unit-maven-plugin.version>
     <arch-unit-build-plugin-core.version>2.9.2</arch-unit-build-plugin-core.version>
+    <archunit.version>0.23.1</archunit.version>
     <app-development-archunit-rule.version>0.0.1-SNAPSHOT</app-development-archunit-rule.version>
     <spring-cloud-aws-dependencies.version>2.4.1</spring-cloud-aws-dependencies.version>
     <!-- plugin related properties -->
@@ -93,7 +94,17 @@
         <artifactId>swagger-annotations</artifactId>
         <version>${swagger-annotations.version}</version>
       </dependency>
-
+      <!-- dependency used by app-development-archunit-rule project-->
+      <dependency>
+        <groupId>com.tngtech.archunit</groupId>
+        <artifactId>archunit</artifactId>
+        <version>${archunit.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.tngtech.archunit</groupId>
+        <artifactId>archunit-junit5</artifactId>
+        <version>${archunit.version}</version>
+      </dependency>
       <!-- project specific shared resource dependency . It's required for maven-dependency-plugin-->
       <dependency>
         <groupId>com.kcm.msp.dev</groupId>
