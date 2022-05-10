@@ -14,3 +14,4 @@
     Add enforcement of junit5 using maven-enforcer-plugin 
     Exclude scanning of generated source folder from spotbugs plugin
     Finalize the configuration and verify generation of client code by openapi-generator-maven-plugin
+    replace spring-boot-starter-parent dependency with spring-boot bom 
