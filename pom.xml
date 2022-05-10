@@ -38,6 +38,7 @@
     <spotbugs.version>4.6.0</spotbugs.version>
     <arch-unit-maven-plugin.version>2.9.2</arch-unit-maven-plugin.version>
     <arch-unit-build-plugin-core.version>2.9.2</arch-unit-build-plugin-core.version>
+    <app-development-archunit-rule.version>0.0.1-SNAPSHOT</app-development-archunit-rule.version>
     <spring-cloud-aws-dependencies.version>2.4.1</spring-cloud-aws-dependencies.version>
     <!-- plugin related properties -->
     <archunit.skip>false</archunit.skip>
@@ -395,6 +396,11 @@
               <artifactId>arch-unit-build-plugin-core</artifactId>
               <version>${arch-unit-build-plugin-core.version}</version>
             </dependency>
+            <dependency>
+              <groupId>com.kcm.msp.dev</groupId>
+              <artifactId>app-development-archunit-rule</artifactId>
+              <version>${app-development-archunit-rule.version}</version>
+            </dependency>
           </dependencies>
           <configuration>
             <skip>${archunit.skip}</skip>
@@ -416,6 +422,12 @@
                 <rule>com.societegenerale.commons.plugin.rules.NoInjectedFieldTest</rule>
                 <rule>com.societegenerale.commons.plugin.rules.NoAutowiredFieldTest</rule>
               </preConfiguredRules>
+              <!-- Adding project specific custom rules -->
+              <configurableRules>
+                <configurableRule>
+                  <rule>com.kcm.msp.dev.app.development.archunit.rule.ProjectArchitectureRule</rule>
+                </configurableRule>
+              </configurableRules>
             </rules>
           </configuration>
           <executions>
