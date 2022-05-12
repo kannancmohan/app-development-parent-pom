@@ -15,3 +15,4 @@
     Exclude scanning of generated source folder from spotbugs plugin
     Finalize the configuration and verify generation of client code by openapi-generator-maven-plugin
     replace spring-boot-starter-parent dependency with spring-boot bom 
+    Add pitest mutation with its maven plugin

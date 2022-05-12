@@ -40,12 +40,14 @@
     <arch-unit-build-plugin-core.version>2.9.2</arch-unit-build-plugin-core.version>
     <archunit.version>0.23.1</archunit.version>
     <app-development-archunit-rule.version>0.0.1-SNAPSHOT</app-development-archunit-rule.version>
+    <owasp-dependency-check.version>7.1.0</owasp-dependency-check.version>
     <spring-cloud-aws-dependencies.version>2.4.1</spring-cloud-aws-dependencies.version>
     <!-- plugin related properties -->
     <archunit.skip>false</archunit.skip>
     <spotbugs.skip>false</spotbugs.skip>
     <openapi-server-code.skip>false</openapi-server-code.skip>
     <openapi-client-code.skip>false</openapi-client-code.skip>
+    <owasp.check.skip>false</owasp.check.skip>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -477,17 +479,47 @@
         <plugin>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-maven-plugin</artifactId>
-          <!-- configured to generate build info which exposes the maven version,artifactId etc -->
-          <!--<executions>
+        </plugin>
+        <!--  owasp plugin-->
+        <plugin>
+          <groupId>org.owasp</groupId>
+          <artifactId>dependency-check-maven</artifactId>
+          <version>${owasp-dependency-check.version}</version>
+          <configuration>
+            <skip>${owasp.check.skip}</skip>
+            <failBuildOnAnyVulnerability>true</failBuildOnAnyVulnerability>
+            <failBuildOnCVSS>5</failBuildOnCVSS>
+            <retireJsAnalyzerEnabled>false</retireJsAnalyzerEnabled>
+            <nuspecAnalyzerEnabled>false</nuspecAnalyzerEnabled>
+            <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
+            <!--<suppressionFiles>
+              <suppressionFile></suppressionFile>
+            </suppressionFiles>-->
+          </configuration>
+          <executions>
             <execution>
               <goals>
-                <goal>build-info</goal>
+                <goal>check</goal>
               </goals>
             </execution>
-          </executions>-->
+          </executions>
         </plugin>
       </plugins>
     </pluginManagement>
   </build>
+
+  <profiles>
+    <profile>
+      <id>quality-assurance-check</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.owasp</groupId>
+            <artifactId>dependency-check-maven</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
