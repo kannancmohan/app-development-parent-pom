@@ -113,9 +113,6 @@
         <groupId>com.kcm.msp.dev</groupId>
         <artifactId>app-development-shared-resource</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <classifier>resources</classifier>
-        <scope>provided</scope>
-        <type>zip</type>
       </dependency>
       <!--<dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
@@ -124,6 +121,16 @@
       </dependency>-->
     </dependencies>
   </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.kcm.msp.dev</groupId>
+      <artifactId>app-development-shared-resource</artifactId>
+      <classifier>resources</classifier>
+      <scope>provided</scope>
+      <type>zip</type>
+    </dependency>
+  </dependencies>
 
   <build>
     <pluginManagement>
@@ -470,6 +477,9 @@
                 <includeGroupIds>com.kcm.msp.dev</includeGroupIds>
                 <includeArtifactIds>app-development-shared-resource</includeArtifactIds>
                 <excludeTransitive>true</excludeTransitive>
+                <classifier>resources</classifier>
+                <scope>provided</scope>
+                <type>zip</type>
                 <!--use as much as needed to be specific...also scope,type,classifier etc-->
               </configuration>
             </execution>
@@ -506,6 +516,13 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <!-- for adding shared app-development-shared-resource automatically to child projects -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+      </plugin>
+    </plugins>
   </build>
 
   <profiles>
