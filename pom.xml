@@ -487,6 +487,15 @@
         <plugin>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-maven-plugin</artifactId>
+          <configuration>
+            <excludes>
+              <!-- exclude app-development-shared-resource from been included in the final project jar -->
+              <exclude>
+                <groupId>com.kcm.msp.dev</groupId>
+                <artifactId>app-development-shared-resource</artifactId>
+              </exclude>
+            </excludes>
+          </configuration>
         </plugin>
         <!--  owasp plugin-->
         <plugin>
