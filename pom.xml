@@ -444,6 +444,11 @@
               <configurableRules>
                 <configurableRule>
                   <rule>com.kcm.msp.dev.app.development.archunit.rule.ProjectArchitectureRule</rule>
+                  <checks>
+                    <check>controllerRule</check>
+                    <check>serviceRule</check>
+                    <check>LAYER_DEPENDENCIES_ARE_RESPECTED</check>
+                  </checks>
                 </configurableRule>
               </configurableRules>
             </rules>
