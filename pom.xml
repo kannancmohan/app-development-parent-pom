@@ -42,6 +42,7 @@
     <app-development-archunit-rule.version>0.0.1-SNAPSHOT</app-development-archunit-rule.version>
     <owasp-dependency-check.version>7.1.0</owasp-dependency-check.version>
     <spring-cloud-aws-dependencies.version>2.4.1</spring-cloud-aws-dependencies.version>
+    <spring-cloud-stream-binder-kafka.version>3.2.3</spring-cloud-stream-binder-kafka.version>
     <!-- plugin related properties -->
     <archunit.skip>false</archunit.skip>
     <spotbugs.skip>false</spotbugs.skip>
@@ -107,6 +108,12 @@
         <groupId>com.tngtech.archunit</groupId>
         <artifactId>archunit-junit5</artifactId>
         <version>${archunit.version}</version>
+      </dependency>
+      <!-- spring cloud kafka dependency -->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-stream-binder-kafka</artifactId>
+        <version>${spring-cloud-stream-binder-kafka.version}</version>
       </dependency>
       <!--<dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
