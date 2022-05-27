@@ -435,7 +435,7 @@
             <rules>
               <preConfiguredRules>
                 <rule>com.societegenerale.commons.plugin.rules.NoStandardStreamRuleTest</rule>
-                <rule>com.societegenerale.commons.plugin.rules.NoJunitAssertRuleTest</rule>
+                <!--<rule>com.societegenerale.commons.plugin.rules.NoJunitAssertRuleTest</rule>-->
                 <rule>com.societegenerale.commons.plugin.rules.NoJodaTimeRuleTest</rule>
                 <rule>com.societegenerale.commons.plugin.rules.NoJavaUtilDateRuleTest</rule>
                 <rule>com.societegenerale.commons.plugin.rules.NoPowerMockRuleTest</rule>
