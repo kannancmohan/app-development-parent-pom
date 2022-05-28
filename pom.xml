@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.6.7</version>
+    <version>2.7.0</version>
     <relativePath/>
   </parent>
   <groupId>com.kcm.msp.dev</groupId>
@@ -34,10 +34,10 @@
     <openapi-generator-maven-plugin.version>5.4.0</openapi-generator-maven-plugin.version>
     <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
     <swagger-annotations.version>1.6.6</swagger-annotations.version>
-    <spotbugs-maven-plugin.version>4.6.0.0</spotbugs-maven-plugin.version>
-    <spotbugs.version>4.6.0</spotbugs.version>
+    <spotbugs-maven-plugin.version>4.7.0.0</spotbugs-maven-plugin.version>
+    <spotbugs.version>4.7.0</spotbugs.version>
     <arch-unit-maven-plugin.version>2.9.2</arch-unit-maven-plugin.version>
-    <arch-unit-build-plugin-core.version>2.9.2</arch-unit-build-plugin-core.version>
+    <arch-unit-build-plugin-core.version>2.9.4</arch-unit-build-plugin-core.version>
     <archunit.version>0.23.1</archunit.version>
     <app-development-archunit-rule.version>0.0.1-SNAPSHOT</app-development-archunit-rule.version>
     <owasp-dependency-check.version>7.1.0</owasp-dependency-check.version>
