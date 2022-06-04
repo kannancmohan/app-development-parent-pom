@@ -125,11 +125,6 @@
         <version>${spring-kafka-test.version}</version>
         <scope>test</scope>
       </dependency>
-      <!--<dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>${jackson-databind.version}</version>
-      </dependency>-->
     </dependencies>
   </dependencyManagement>
 
@@ -311,13 +306,6 @@
           <groupId>org.openapitools</groupId>
           <artifactId>openapi-generator-maven-plugin</artifactId>
           <version>${openapi-generator-maven-plugin.version}</version>
-          <!--<dependencies>
-            <dependency>
-              <groupId>com.google.code.findbugs</groupId>
-              <artifactId>jsr305</artifactId>
-              <version>${findbugs-jsr305.version}</version>
-            </dependency>
-          </dependencies>-->
           <executions>
             <execution>
               <id>generate-openapi-server-code</id>
@@ -326,7 +314,6 @@
               </goals>
               <configuration>
                 <skip>${openapi-server-code.skip}</skip>
-                <!-- can openapi source as url -->
                 <!--<inputSpec>https://petstore3.swagger.io/api/v3/openapi.yaml</inputSpec>-->
                 <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml
                 </inputSpec>
@@ -353,12 +340,10 @@
                 <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml
                 </inputSpec>
                 <generatorName>java</generatorName>
+                <library>resttemplate</library>
                 <apiPackage>${project.groupId}.${open-api-client-package}.api</apiPackage>
                 <modelPackage>${project.groupId}.${open-api-client-package}.models</modelPackage>
-                <!--<supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>-->
                 <output>${project.build.directory}/generated-sources</output>
-                <generatorName>java</generatorName>
-                <library>resttemplate</library>
                 <!-- set generateApis false we want to generate model classes only-->
                 <generateApis>true</generateApis>
                 <generateApiDocumentation>false</generateApiDocumentation>
@@ -367,16 +352,12 @@
                 <generateModelDocumentation>false</generateModelDocumentation>
                 <generateModelTests>false</generateModelTests>
                 <!--<generateSupportingFiles>true</generateSupportingFiles>-->
+                <!--<supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>-->
                 <configOptions>
                   <sourceFolder>src/main/java</sourceFolder>
                   <useTags>true</useTags>
                   <interfaceOnly>true</interfaceOnly>
                   <dateLibrary>java8</dateLibrary>
-                  <!--<library>resttemplate</library>-->
-                  <!--<generateBuilders>true</generateBuilders>-->
-                  <!--<library>native</library>
-                  <useRuntimeException>true</useRuntimeException>
-                  <generatePom>false</generatePom>-->
                 </configOptions>
               </configuration>
             </execution>
@@ -400,15 +381,6 @@
             <failOnError>true</failOnError>
             <!-- threshold values Low,Medium,High -->
             <threshold>High</threshold>
-            <!--<includeFilterFile>spotbugs-security-include.xml</includeFilterFile>
-            <excludeFilterFile>spotbugs-security-exclude.xml</excludeFilterFile>
-            <plugins>
-              <plugin>
-                <groupId>com.h3xstream.findsecbugs</groupId>
-                <artifactId>findsecbugs-plugin</artifactId>
-                <version>1.10.1</version>
-              </plugin>
-            </plugins>-->
           </configuration>
           <executions>
             <execution>
@@ -564,5 +536,4 @@
       </build>
     </profile>
   </profiles>
-
 </project>
