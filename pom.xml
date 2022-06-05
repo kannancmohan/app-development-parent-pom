@@ -47,10 +47,12 @@
     <!-- plugin related properties -->
     <archunit.skip>false</archunit.skip>
     <spotbugs.skip>false</spotbugs.skip>
-    <openapi-server-code.skip>false</openapi-server-code.skip>
-    <openapi-server-code.reactive>false</openapi-server-code.reactive>
-    <openapi-client-code.skip>false</openapi-client-code.skip>
-    <openapi-client-code.library>resttemplate</openapi-client-code.library>
+    <generate-openapi-server-code.skip>false</generate-openapi-server-code.skip>
+    <generate-openapi-server-code.reactive>false</generate-openapi-server-code.reactive>
+    <generate-openapi-server-code.inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml</generate-openapi-server-code.inputSpec>
+    <generate-openapi-client-code.skip>false</generate-openapi-client-code.skip>
+    <generate-openapi-client-code.library>resttemplate</generate-openapi-client-code.library>
+    <generate-openapi-client-code.inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml</generate-openapi-client-code.inputSpec>
     <owasp.check.skip>false</owasp.check.skip>
   </properties>
   <dependencyManagement>
@@ -318,18 +320,17 @@
                 <goal>generate</goal>
               </goals>
               <configuration>
-                <skip>${openapi-server-code.skip}</skip>
+                <skip>${generate-openapi-server-code.skip}</skip>
                 <!--<inputSpec>https://petstore3.swagger.io/api/v3/openapi.yaml</inputSpec>-->
-                <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml
-                </inputSpec>
+                <inputSpec>${generate-openapi-server-code.inputSpec}</inputSpec>
                 <generatorName>spring</generatorName>
                 <library>spring-boot</library>
-                <apiPackage>${project.groupId}.${open-api-server-package}.api</apiPackage>
-                <modelPackage>${project.groupId}.${open-api-server-package}.models</modelPackage>
+                <apiPackage>${project.groupId}.${generate-openapi-server-code.package}.api</apiPackage>
+                <modelPackage>${project.groupId}.${generate-openapi-server-code.package}.models</modelPackage>
                 <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
                 <output>${project.build.directory}/generated-sources</output>
                 <configOptions>
-                  <reactive>${openapi-server-code.reactive}</reactive>
+                  <reactive>${generate-openapi-server-code.reactive}</reactive>
                   <sourceFolder>src/main/java/</sourceFolder>
                   <delegatePattern>true</delegatePattern>
                   <interfaceOnly>true</interfaceOnly>
@@ -339,18 +340,17 @@
               </configuration>
             </execution>
             <execution>
-              <id>generate-openapi-java-client-code</id>
+              <id>generate-openapi-client-code</id>
               <goals>
                 <goal>generate</goal>
               </goals>
               <configuration>
-                <skip>${openapi-client-code.skip}</skip>
-                <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml
-                </inputSpec>
+                <skip>${generate-openapi-client-code.skip}</skip>
+                <inputSpec>${generate-openapi-client-code.inputSpec}</inputSpec>
                 <generatorName>java</generatorName>
-                <library>${openapi-client-code.library}</library>
-                <apiPackage>${project.groupId}.${open-api-client-package}.api</apiPackage>
-                <modelPackage>${project.groupId}.${open-api-client-package}.models</modelPackage>
+                <library>${generate-openapi-client-code.library}</library>
+                <apiPackage>${project.groupId}.${generate-openapi-client-code.package}.api</apiPackage>
+                <modelPackage>${project.groupId}.${generate-openapi-client-code.package}.models</modelPackage>
                 <output>${project.build.directory}/generated-sources</output>
                 <!-- set generateApis false we want to generate model classes only-->
                 <generateApis>true</generateApis>
