@@ -50,7 +50,7 @@
     <openapi-server-code.skip>false</openapi-server-code.skip>
     <openapi-server-code.reactive>false</openapi-server-code.reactive>
     <openapi-client-code.skip>false</openapi-client-code.skip>
-    <openapi-client-code.reactive>false</openapi-client-code.reactive>
+    <openapi-client-code.library>resttemplate</openapi-client-code.library>
     <owasp.check.skip>false</owasp.check.skip>
   </properties>
   <dependencyManagement>
@@ -348,7 +348,7 @@
                 <inputSpec>${project.basedir}/src/main/resources/static/openapi/openapi.yaml
                 </inputSpec>
                 <generatorName>java</generatorName>
-                <library>resttemplate</library>
+                <library>${openapi-client-code.library}</library>
                 <apiPackage>${project.groupId}.${open-api-client-package}.api</apiPackage>
                 <modelPackage>${project.groupId}.${open-api-client-package}.models</modelPackage>
                 <output>${project.build.directory}/generated-sources</output>
