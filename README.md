@@ -3,6 +3,7 @@
 parent pom that supports building spring-boot based applications
 
 ## supported versions
+
     java - 17
     maven 3.5.4+
     spring-boot 2.7.0
@@ -30,9 +31,22 @@ parent pom that supports building spring-boot based applications
     * owasp dependency-check-maven: to check vulnerabilities contained within a project dependencies
 
 ## TODO
+
     Add sonar-maven-plugin
     Add enforcement of junit5 using maven-enforcer-plugin 
     Exclude scanning of generated source folder from spotbugs plugin
     Finalize the configuration and verify generation of client code by openapi-generator-maven-plugin
     replace spring-boot-starter-parent dependency with spring-boot bom 
     Add pitest mutation with its maven plugin
+
+## Known child projects
+
+    * app-development-prototype-microservice: sample spring-boot rest application
+        -http://localhost:8881/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config
+    * app-development-prototype-webflux-microservice: sample spring-boot webflux application
+        -http://localhost:8886/webjars/swagger-ui/index.html
+    * app-development-prototype-kafka: kafka project with sample consumer,producer and processor using spring-cloud-stream-binder-kafka
+        - producer app: http://localhost:8883/actuator/bindings
+        - consumer app: http://localhost:8882/actuator/bindings
+        - processor app: http://localhost:8884/actuator/bindings
+    * app-development-archunit-rule: project with custom archunit rules
