@@ -6,9 +6,9 @@ parent pom that supports building spring-boot based applications
 
     java - 17
     maven 3.5.4+
-    spring-boot 2.7.0
-    spring-cloud-stream 3.2.3
-    spring-cloud-aws 2.4.1
+    spring-boot 2.7.2
+    spring-cloud-stream 3.2.4
+    spring-cloud-aws 2.4.2
 
 ## This pom includes following dependencies
 
