@@ -37,8 +37,8 @@
     <swagger-annotations.version>1.6.6</swagger-annotations.version>
     <spotbugs-maven-plugin.version>4.7.0.0</spotbugs-maven-plugin.version>
     <spotbugs.version>4.7.0</spotbugs.version>
-    <arch-unit-maven-plugin.version>2.9.2</arch-unit-maven-plugin.version>
-    <arch-unit-build-plugin-core.version>2.9.4</arch-unit-build-plugin-core.version>
+    <arch-unit-maven-plugin.version>2.9.3</arch-unit-maven-plugin.version>
+    <arch-unit-build-plugin-core.version>2.9.6</arch-unit-build-plugin-core.version>
     <archunit.version>0.23.1</archunit.version>
     <maven-model.version>3.8.6</maven-model.version>
     <app-development-archunit-rule.version>0.0.1-SNAPSHOT</app-development-archunit-rule.version>
