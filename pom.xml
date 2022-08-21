@@ -359,7 +359,7 @@
                 <apiPackage>${project.groupId}.${generate-openapi-client-code.package}.api</apiPackage>
                 <modelPackage>${project.groupId}.${generate-openapi-client-code.package}.models</modelPackage>
                 <output>${project.build.directory}/generated-sources</output>
-                <!-- set generateApis false we want to generate model classes only-->
+                <!-- set generateApis to 'false' if we want to generate model classes only-->
                 <generateApis>true</generateApis>
                 <generateApiDocumentation>false</generateApiDocumentation>
                 <generateApiTests>false</generateApiTests>
@@ -407,7 +407,7 @@
             </execution>
           </executions>
         </plugin>
-        <!-- archunit plugin -->
+        <!-- archunit plugin . Use 'mvn arch-unit:arch-test' to individually run archunit tests-->
         <plugin>
           <groupId>com.societegenerale.commons</groupId>
           <artifactId>arch-unit-maven-plugin</artifactId>
