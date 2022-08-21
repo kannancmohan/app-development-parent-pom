@@ -374,6 +374,8 @@
                   <interfaceOnly>true</interfaceOnly>
                   <dateLibrary>java8</dateLibrary>
                 </configOptions>
+                <!-- set this to override variables defined in spec. use ',' for passing multiple values -->
+                <serverVariableOverrides>${generate-openapi-client-code.overrideServerVariables}</serverVariableOverrides>
               </configuration>
             </execution>
           </executions>
