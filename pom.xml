@@ -42,7 +42,7 @@
     <archunit.version>0.23.1</archunit.version>
     <maven-model.version>3.8.6</maven-model.version>
     <app-development-archunit-rule.version>0.0.1-SNAPSHOT</app-development-archunit-rule.version>
-    <owasp-dependency-check.version>7.1.0</owasp-dependency-check.version>
+    <owasp-dependency-check.version>7.3.0</owasp-dependency-check.version>
     <spring-cloud-aws-dependencies.version>2.4.2</spring-cloud-aws-dependencies.version>
     <spring-cloud-stream-dependencies.version>3.2.4</spring-cloud-stream-dependencies.version>
     <spring-kafka-test.version>2.8.6</spring-kafka-test.version>
