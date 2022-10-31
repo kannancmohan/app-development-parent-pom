@@ -39,7 +39,7 @@
     <spotbugs.version>4.7.0</spotbugs.version>
     <arch-unit-maven-plugin.version>2.9.3</arch-unit-maven-plugin.version>
     <arch-unit-build-plugin-core.version>2.9.6</arch-unit-build-plugin-core.version>
-    <archunit.version>0.23.1</archunit.version>
+    <archunit.version>1.0.0</archunit.version>
     <maven-model.version>3.8.6</maven-model.version>
     <app-development-archunit-rule.version>0.0.1-SNAPSHOT</app-development-archunit-rule.version>
     <owasp-dependency-check.version>7.3.0</owasp-dependency-check.version>
