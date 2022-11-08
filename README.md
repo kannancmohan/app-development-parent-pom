@@ -6,8 +6,8 @@ parent pom that supports building spring-boot based applications
 
     java - 17
     maven 3.5.4+
-    spring-boot 2.7.2
-    spring-cloud-stream 3.2.4
+    spring-boot 2.7.5
+    spring-cloud-stream 3.2.6
     spring-cloud-aws 2.4.2
 
 ## This pom includes following dependencies
@@ -38,6 +38,7 @@ parent pom that supports building spring-boot based applications
     Finalize the configuration and verify generation of client code by openapi-generator-maven-plugin
     replace spring-boot-starter-parent dependency with spring-boot bom 
     Add pitest mutation with its maven plugin
+    Add owasp-zap maven plugin for CI/CD 
 
 ## Known child projects
 
