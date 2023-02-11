@@ -34,18 +34,18 @@
     <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     <openapi-generator-maven-plugin.version>5.4.0</openapi-generator-maven-plugin.version>
     <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
-    <swagger-annotations.version>1.6.6</swagger-annotations.version>
+    <swagger-annotations.version>1.6.9</swagger-annotations.version>
     <spotbugs-maven-plugin.version>4.7.2.1</spotbugs-maven-plugin.version>
     <spotbugs.version>4.7.3</spotbugs.version>
     <arch-unit-maven-plugin.version>3.0.0</arch-unit-maven-plugin.version>
     <arch-unit-build-plugin-core.version>3.0.0</arch-unit-build-plugin-core.version>
-    <archunit.version>1.0.0</archunit.version>
+    <archunit.version>1.0.1</archunit.version>
     <maven-model.version>3.8.6</maven-model.version>
     <app-development-archunit-rule.version>0.0.1-SNAPSHOT</app-development-archunit-rule.version>
     <owasp-dependency-check.version>7.3.0</owasp-dependency-check.version>
     <spring-cloud-aws-dependencies.version>2.4.2</spring-cloud-aws-dependencies.version>
     <spring-cloud-stream-dependencies.version>3.2.6</spring-cloud-stream-dependencies.version>
-    <spring-kafka-test.version>2.9.2</spring-kafka-test.version>
+    <spring-kafka-test.version>3.0.2</spring-kafka-test.version>
     <!-- plugin related properties -->
     <archunit.skip>false</archunit.skip>
     <spotbugs.skip>false</spotbugs.skip>
