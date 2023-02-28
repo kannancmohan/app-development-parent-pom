@@ -25,7 +25,7 @@
     <commons-lang3.version>3.12.0</commons-lang3.version>
     <commons-collections4.version>4.4</commons-collections4.version>
     <springdoc-openapi.version>1.6.14</springdoc-openapi.version>
-    <jackson-databind-nullable.version>0.2.4</jackson-databind-nullable.version>
+    <jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
     <maven-enforcer-plugin.version>3.2.1</maven-enforcer-plugin.version>
     <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
     <maven.checkstyle.plugin.version>3.2.1</maven.checkstyle.plugin.version>
@@ -42,10 +42,10 @@
     <archunit.version>1.0.1</archunit.version>
     <maven-model.version>3.9.0</maven-model.version>
     <app-development-archunit-rule.version>0.0.1-SNAPSHOT</app-development-archunit-rule.version>
-    <owasp-dependency-check.version>7.3.0</owasp-dependency-check.version>
+    <owasp-dependency-check.version>8.1.2</owasp-dependency-check.version>
     <spring-cloud-aws-dependencies.version>2.4.4</spring-cloud-aws-dependencies.version>
     <spring-cloud-stream-dependencies.version>3.2.6</spring-cloud-stream-dependencies.version>
-    <spring-kafka-test.version>3.0.2</spring-kafka-test.version>
+    <spring-kafka-test.version>3.0.3</spring-kafka-test.version>
     <!-- plugin related properties -->
     <archunit.skip>false</archunit.skip>
     <spotbugs.skip>false</spotbugs.skip>
