@@ -28,9 +28,9 @@
     <jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
     <maven-enforcer-plugin.version>3.2.1</maven-enforcer-plugin.version>
     <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
-    <maven.checkstyle.plugin.version>3.2.1</maven.checkstyle.plugin.version>
-    <checkstyle.version>10.2</checkstyle.version>
-    <git-code-format.version>4.2</git-code-format.version>
+    <maven.checkstyle.plugin.version>3.3.1</maven.checkstyle.plugin.version>
+    <checkstyle.version>10.12.4</checkstyle.version>
+    <git-code-format.version>5.1</git-code-format.version>
     <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     <openapi-generator-maven-plugin.version>6.3.0</openapi-generator-maven-plugin.version>
     <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
@@ -45,7 +45,7 @@
     <owasp-dependency-check.version>8.1.2</owasp-dependency-check.version>
     <spring-cloud-aws-dependencies.version>2.4.4</spring-cloud-aws-dependencies.version>
     <spring-cloud-stream-dependencies.version>3.2.6</spring-cloud-stream-dependencies.version>
-    <spring-kafka-test.version>3.0.3</spring-kafka-test.version>
+    <spring-kafka-test.version>3.0.12</spring-kafka-test.version>
     <!-- plugin related properties -->
     <archunit.skip>false</archunit.skip>
     <spotbugs.skip>false</spotbugs.skip>
@@ -286,6 +286,14 @@
               </goals>
             </execution>
           </executions>
+          <dependencies>
+            <!-- Enable https://github.com/google/google-java-format -->
+            <dependency>
+              <groupId>com.cosium.code</groupId>
+              <artifactId>google-java-format</artifactId>
+              <version>${git-code-format.version}</version>
+            </dependency>
+          </dependencies>
           <configuration>
             <googleJavaFormatOptions>
               <aosp>false</aosp>

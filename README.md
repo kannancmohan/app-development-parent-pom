@@ -15,7 +15,7 @@ parent pom that supports building spring-boot based applications
 ## This pom includes following plugins
 
     * maven-compiler-plugin: to build and compile in respective java version
-    * maven-enforcer-plugin: to enforce proper jave, maven versions and other compliances
+    * maven-enforcer-plugin: to enforce proper java, maven versions and other compliances
     * maven-checkstyle-plugin(with google checkstyle): does checkstyle analysis on code 
         - for manula code formatting use 'mvn git-code-format:format-code'
     * git-code-format-maven-plugin:  used to autoformat code at git commit and also to verify the code format at mvn verify
