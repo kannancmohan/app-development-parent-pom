@@ -26,17 +26,17 @@
     <commons-collections4.version>4.4</commons-collections4.version>
     <springdoc-openapi.version>1.6.14</springdoc-openapi.version>
     <jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
-    <maven-enforcer-plugin.version>3.2.1</maven-enforcer-plugin.version>
-    <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
+    <maven-enforcer-plugin.version>3.4.1</maven-enforcer-plugin.version>
+    <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
     <maven.checkstyle.plugin.version>3.3.1</maven.checkstyle.plugin.version>
     <checkstyle.version>10.12.4</checkstyle.version>
     <git-code-format.version>5.1</git-code-format.version>
-    <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
     <openapi-generator-maven-plugin.version>6.3.0</openapi-generator-maven-plugin.version>
     <findbugs-jsr305.version>3.0.2</findbugs-jsr305.version>
     <swagger-annotations.version>1.6.9</swagger-annotations.version>
-    <spotbugs-maven-plugin.version>4.7.3.2</spotbugs-maven-plugin.version>
-    <spotbugs.version>4.7.3</spotbugs.version>
+    <spotbugs-maven-plugin.version>4.7.3.6</spotbugs-maven-plugin.version>
+    <spotbugs.version>4.8.0</spotbugs.version>
     <arch-unit-maven-plugin.version>3.0.0</arch-unit-maven-plugin.version>
     <arch-unit-build-plugin-core.version>3.0.0</arch-unit-build-plugin-core.version>
     <archunit.version>1.0.1</archunit.version>
@@ -256,7 +256,7 @@
               <configuration>
                 <configLocation>google_checks.xml</configLocation>
                 <suppressionsLocation>supressions.xml</suppressionsLocation>
-                <encoding>UTF-8</encoding>
+                <inputEncoding>UTF-8</inputEncoding>
                 <failsOnError>true</failsOnError>
                 <consoleOutput>true</consoleOutput>
                 <violationSeverity>error</violationSeverity>
@@ -295,12 +295,18 @@
             </dependency>
           </dependencies>
           <configuration>
-            <googleJavaFormatOptions>
-              <aosp>false</aosp>
-              <fixImportsOnly>false</fixImportsOnly>
-              <skipSortingImports>false</skipSortingImports>
-              <skipRemovingUnusedImports>false</skipRemovingUnusedImports>
-            </googleJavaFormatOptions>
+            <formatterOptions>
+              <!-- Use AOSP style instead of Google Style (4-space indentation). -->
+              <googleJavaFormat.aosp>false</googleJavaFormat.aosp>
+              <!-- Format the javadoc -->
+              <googleJavaFormat.formatJavadoc>true</googleJavaFormat.formatJavadoc>
+              <!-- Fix import order and remove any unused imports, but do no other formatting. -->
+              <googleJavaFormat.fixImportsOnly>false</googleJavaFormat.fixImportsOnly>
+              <!-- Do not fix the import order. Unused imports will still be removed. -->
+              <googleJavaFormat.skipSortingImports>false</googleJavaFormat.skipSortingImports>
+              <!-- Do not remove unused imports. Imports will still be sorted. -->
+              <googleJavaFormat.skipRemovingUnusedImports>false</googleJavaFormat.skipRemovingUnusedImports>
+            </formatterOptions>
           </configuration>
         </plugin>
         <!-- jacoco plugin to generate test report-->
@@ -494,9 +500,8 @@
                 <includeArtifactIds>app-development-shared-resource</includeArtifactIds>
                 <excludeTransitive>true</excludeTransitive>
                 <classifier>resources</classifier>
-                <scope>provided</scope>
+                <includeScope>provided</includeScope>
                 <type>zip</type>
-                <optional>true</optional>
                 <!--use as much as needed to be specific...also scope,type,classifier etc-->
               </configuration>
             </execution>
