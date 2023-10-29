@@ -39,9 +39,10 @@
     <spotbugs.version>4.8.0</spotbugs.version>
     <arch-unit-maven-plugin.version>3.0.0</arch-unit-maven-plugin.version>
     <arch-unit-build-plugin-core.version>3.0.0</arch-unit-build-plugin-core.version>
-    <archunit.version>1.0.1</archunit.version>
-    <maven-model.version>3.9.0</maven-model.version>
+    <archunit.version>1.1.0</archunit.version>
+    <maven-model.version>3.9.5</maven-model.version>
     <app-development-archunit-rule.version>0.0.1-SNAPSHOT</app-development-archunit-rule.version>
+    <app-development-shared-resource.version>0.0.1-SNAPSHOT</app-development-shared-resource.version>
     <owasp-dependency-check.version>8.1.2</owasp-dependency-check.version>
     <spring-cloud-aws-dependencies.version>2.4.4</spring-cloud-aws-dependencies.version>
     <spring-cloud-stream-dependencies.version>3.2.6</spring-cloud-stream-dependencies.version>
@@ -147,7 +148,7 @@
     <dependency>
       <groupId>com.kcm.msp.dev</groupId>
       <artifactId>app-development-shared-resource</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>${app-development-shared-resource.version}</version>
       <classifier>resources</classifier>
       <scope>provided</scope>
       <type>zip</type>
