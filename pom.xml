@@ -44,7 +44,7 @@
     <app-development-archunit-rule.version>0.0.1-SNAPSHOT</app-development-archunit-rule.version>
     <app-development-shared-resource.version>0.0.1-SNAPSHOT</app-development-shared-resource.version>
     <owasp-dependency-check.version>8.4.2</owasp-dependency-check.version>
-    <spring-cloud-aws-dependencies.version>2.4.4</spring-cloud-aws-dependencies.version>
+    <spring-cloud-aws-dependencies.version>3.1.0</spring-cloud-aws-dependencies.version>
     <spring-cloud-stream-dependencies.version>3.2.6</spring-cloud-stream-dependencies.version>
     <spring-kafka-test.version>3.0.12</spring-kafka-test.version>
     <!-- plugin related properties -->
